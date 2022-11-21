@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { deleteContact } from 'redux/contactsSlice';
 import { getContact } from 'redux/selectors';
@@ -13,7 +12,7 @@ export const ContactList = () => {
 
   const filteredContact = () => {
     // const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact => contact.name);
+    return contacts.filter(({ name }) => name);
   };
   const formatting = filteredContact();
 
@@ -35,9 +34,4 @@ export const ContactList = () => {
       ))}
     </ul>
   );
-};
-
-ContactList.propTypes = {
-  formatting: PropTypes.array,
-  onDeleteContact: PropTypes.func,
 };
